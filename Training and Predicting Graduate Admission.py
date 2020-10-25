@@ -24,6 +24,7 @@ lorm = LogisticRegression()
 lorm.fit(X,Y)
 R_sq=lorm.score(X,Y)
 print('\n Coefficient of determination by Logistic Regression Model is:', "{0:.3f}".format(R_sq))
+#Coeff of determ.  basically determines how well the model fits to training data set & is diff. from correlation coeff. bcoz it basically tells the reln b/w parameters of axis
 
 df['Predicting Admission Result']=lorm.predict(X)
 print('\n', df.loc[:6,['Admission Result','Predicting Admission Result']] )
@@ -55,7 +56,7 @@ R_sq=nbm.score(X_train,Y_train)
 print('\n Coefficient of determination by Guassian Naive Bayes Model is:', "{0:.3f}".format(R_sq))
 
 predict=pd.DataFrame()
-predict['Predicting Admission Result']=lorm.predict(X_test)
+predict['Predicting Admission Result']=nbm.predict(X_test)
 print('\n',predict[0:10])
 print('\n',Y_test[0:10])
 print('\n Naive Bayes Model Test Accuracy by evaluating on test dataset:',mean(double(predict['Predicting Admission Result'])==Y_test)*100)
